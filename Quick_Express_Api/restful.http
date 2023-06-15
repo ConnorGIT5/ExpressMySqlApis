@@ -1,0 +1,9 @@
+GET https://swapi.dev/api/people/1/
+
+###
+
+GET http://localhost:8080/
+
+###
+
+POST http://localhost:8080/tshirt/23
