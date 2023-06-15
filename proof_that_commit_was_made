@@ -1,3 +1,8 @@
 ⭐
 
 Other notes: The 'restful.http' file will work if you install the 'REST Client' extension by Huachao Mao
+
+❌I ran 'npm init -y' and 'npm install express' in \NodeExpressMySql>.
+    I had 'index.js' in the folder 'Quick_Express_Api', and 'index.js' is the "main" file definedby 'package.json'.
+    So I moved index.js from 'Quick_Express_Api' to 'NodeExpressMySql', allowing nodejs to run using \NodeExpressMySql> Node . 
+
