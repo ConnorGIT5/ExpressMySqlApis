@@ -56,7 +56,7 @@ SELECT * FROM Users;
 
 -- @block
 
-CREATE TABLE Rooms(
+CREATE TABLE Rooms(    -- now, it's impossible to delete users who have an associated room at the same time  
     id INT AUTO_INCREMENT,
     STREET varchar(255),
     owner_id INT NOT NULL,
@@ -85,8 +85,8 @@ ON Rooms.owner_id = Users.id;
 
 
 -- @block
-SELECT * FROM Users  -- includes all the users who don't have a room
-LEFT JOIN Rooms
+SELECT * FROM Users  -- includes all the users, even those who don't have a room
+LEFT JOIN Rooms      -- a right join would return all the room that don't have an owner
 ON Rooms.owner_id = Users.id;
 
 
@@ -100,14 +100,40 @@ FROM Users
 INNER JOIN Rooms ON Rooms.owner_id = Users.id;
 
 -- @block
-
+-- Using this table to answer how a user can book a room from another user
 CREATE TABLE Bookings(
     id INT AUTO_INCREMENT,
     guest_id INT NOT NULL,
     room_id INT NOT NULL,
     check_in DATETIME,
     PRIMARY KEY (id),
+    FOREIGN KEY (guest_id) REFERENCES Users(id),  -- a user can reserve one or many rooms
+    FOREIGN KEY (room_id) REFERENCES Rooms(id)  -- a room can be booked by users
 )
 
 -- @block
+drop table bookings;
+-- @block
+SELECT
+    guest_id,
+    street,
+    check_in
+FROM Bookings
+INNER JOIN Rooms ON Rooms.owner_id = guest_id
+WHERE guest_id = 1;      -- showing all the rooms a user has booked
+
+-- @block
+SELECT
+    room_id,
+    guest_id,
+    email,
+    bio
+FROM Bookings
+INNER JOIN Users ON Users.id = guest_id
+WHERE room_id = 1;      -- showing all the rooms a user has booked
+
+-- @block
+
+-- @block
+
 -- @block
