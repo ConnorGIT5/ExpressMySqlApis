@@ -1,6 +1,7 @@
 # this file?
 .gitignore
 .vscode
+.git
 
 package-lock.json
 
