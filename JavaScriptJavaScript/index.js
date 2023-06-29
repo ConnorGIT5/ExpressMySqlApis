@@ -1230,11 +1230,98 @@ else {
 // promise.then((value) => console.log(value))
 //        .catch(error => console.log(error));
 
-// wait for 5 seconds, then display a message
+// // wait for 5 seconds, then display a message
 
-const wait = time => new Promise( resolve => {
-    setTimeout(resolve, time);
-});
+// const wait = time => new Promise( resolve => {
+//     setTimeout(resolve, time);
+// });
 
-wait(3000).then( () => console.log("Thanks for waiting"));
+// wait(3000).then( () => console.log("Thanks for waiting"));
+
+// // async: makes a function return a promise
+
+// async function loadFile(){
+
+//     let fileLoaded = true;
+
+//     if(fileLoaded){
+//         return "File loaded ✅";
+//     }
+//     else{
+//         throw "File not loaded ❌";
+//     }
+// }
+
+// loadFile().then(value => console.log(value))
+//        .catch(error => console.log(error));
+
+// // await: makes an async function wait for a promise
+
+// async function loadFile(){
+
+//     let fileLoaded = false;
+
+//     if(fileLoaded){
+//         return "File loaded ✅";
+//     }
+//     else{
+//         throw "File not loaded ❌";
+//     }
+// }
+
+// async function startProcess(){
+//     // the await keyword can only be used in an async function
+
+//     try{        
+//     let message = await loadFile();
+//     console.log(message);
+
+//     }
+//     catch(error){
+//         console.log(error);
+//     }
+   
+// }
+// startProcess();
+
+// // !!!!!!!!!!!!!!!Modules: a file with reusable code. You can use parts of the file at a time.!!!!!!!!!!!!!!!!!
+
+// import * as AllMaths from "./math_util.js";
+
+// // The contents of math_util.js
+
+// // export const PI = 3.14159;
+
+// // export function getCircumference(radius){
+// //     return 2 * PI * radius;
+
+// // }
+
+// // export function getArea(radius){
+// //     return  PI * radius * radius;
+    
+// // }
+
+// console.log(AllMaths.PI);
+
+// let circumference = AllMaths.getCircumference(10);
+// console.log(circumference);
+
+// let area = AllMaths.getArea(10);
+// console.log(area);
+
+// !!!!!!!!!! THE DOM !!!!!!!!!! THE DOM !!!!!!!!!! THE DOM !!!!!!!!!! THE DOM !!!!!!!!!! THE DOM
+
+//  console.log(document.URL);
+
+//  document.title = "Title goes here 😁";
+// document.location = "http://Google.com";
+
+// document.body.style.backgroundColor = "skyblue";
+// document.getElementById("myDiv").innerHTML = "Hello";
+
+// !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS
+
+let element = document.getElementById("myTitle");
+element.style.backgroundColor = 'lightgreen';
 
