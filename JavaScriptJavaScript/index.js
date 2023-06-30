@@ -1320,8 +1320,351 @@ else {
 // document.body.style.backgroundColor = "skyblue";
 // document.getElementById("myDiv").innerHTML = "Hello";
 
-// !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS
+// // !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS !!!!!!!! ELEMENT SELECTORS
 
-let element = document.getElementById("myTitle");
-element.style.backgroundColor = 'lightgreen';
+// // let element = document.getElementById("myTitle");
+// // element.style.backgroundColor = 'lightgreen';
+
+// let fruits = document.getElementsByName('fruits');
+// fruits.forEach(fruit => {
+//     if(fruit.checked){
+//         console.log(fruit.value);
+//     }
+// })
+
+// let vegetables = document.getElementsByTagName('li');
+// vegetables[2].style.backgroundColor = 'lightgreen';
+
+// let desserts = document.getElementsByClassName("desserts");
+// desserts[0].style.backgroundColor = 'lightgreen';
+// desserts[1].style.backgroundColor = 'lightblue';
+// desserts[2].style.backgroundColor = 'orange';
+
+// let element = document.querySelector("#myTitle"); // class names are preceded by a dot (.) EX: (".desserts")
+// element.style.backgroundColor = 'cyan';
+
+// let elements = document.querySelectorAll("li");
+// elements.forEach(element => {
+//     element.style.backgroundColor = 'lightblue';
+// })
+
+// let elements2 = document.querySelectorAll("[for]");
+// elements2.forEach(element => {
+//     element.style.backgroundColor = 'lightgreen';
+// })
+
+// // !!!!! DOM TRAVERSAL !!!!! DOM TRAVERSAL !!!!! DOM TRAVERSAL !!!!! DOM TRAVERSAL !!!!! DOM TRAVERSAL
+
+// let element = document.querySelector("#vegetables");
+// let child = Array.from(element.children);
+
+// child.forEach(child => child.style.backgroundColor = 'lightgreen');
+
+// add/change html elements
+
+// const nameTag = document.createElement("h1"); 
+// nameTag.textContent = window.prompt("Enter your name"); // textContent is much safer than innerHTML
+// document.body.append(nameTag);
+
+// const myList = document.querySelector("#fruit");
+// const listItem = document.createElement("li");
+// listItem.textContent = "mango";
+// myList.append(listItem);  // prepend: beginning
+
+// // putting an item in the middle of a list'
+// myList.insertBefore(listItem, myList.getElementsByTagName('li')[1]); // puts mango in the second part of the list
+
+// !!!!!! CHANGING CSS PROPERTIES !!!!!! CHANGING CSS PROPERTIES !!!!!! CHANGING CSS PROPERTIES !!!!!! CHANGING CSS PROPERTIES
+
+// const title = document.getElementById('myTitle');
+
+// title.style.backgroundColor = "rgb(50,190,200)";
+// title.style.color = "rgb(255,255,255)";
+// title.style.fontFamily = "consolas";
+// title.style.textAlight = "center";
+// title.style.border = "2px solid";
+// title.style.display = "block";
+
+// const element = document.getElementById("myButton");
+// element.onclick = doSomething;
+
+// const element = document.body;
+// element.onload = doSomething;
+
+// const element = document.getElementById('myText');
+// element.onchange = doSomething;
+
+// const element = document.getElementById("myDiv");
+// element.onmouseover = doSomething;
+// element.onmouseout = doSomethingElse;
+
+// function doSomething(){
+//     //alert("You pressed the button! ✅"); 
+//     element.style.backgroundColor = 'red';
+
+// }
+
+// function doSomethingElse(){
+//     element.style.backgroundColor = 'lightgreen';
+
+// }
+
+// element.onmousedown = doSomething3;
+// element.onmouseup  = doSomething4;
+
+// function doSomething3(){
+//     element.style.backgroundColor = 'red';
+
+// }
+
+// function doSomething4(){
+//     element.style.backgroundColor = 'lightgreen';
+
+// }
+
+// the addEventListener() method: links a function to an html element
+
+// const innerDiv = document.getElementById("innerDiv");
+// const outerDiv = document.getElementById("outerDiv");
+
+// innerDiv.addEventListener("click", changeBlue);
+// outerDiv.addEventListener("click", changeBlue, true); // 'true' adds preference, which means it will execute first
+
+// function changeBlue(){
+//     alert(`you selected ${this.id}`);
+//     this.style.backgroundColor = 'lightblue';
+// }
+
+// // show / hide html elements
+
+// const myButton = document.querySelector("#myButton");
+// const myImg = document.querySelector("#myImg");
+
+// myButton.addEventListener("click", () => 
+// {
+//     console.log(myImg.style.display);
+
+//     if(myImg.style.visibility == "hidden")  // if it was 'myImg.style.display', my <p> would be moved up and down
+//     {
+//         myImg.style.visibility = 'visible';  // use ='none' for .display. // and use block instead of visible
+//     }                                       // style="display: hidden;" if using display
+//     else
+//     {
+//         myImg.style.visibility = "hidden";
+//     }
+// })
+
+//  // detect key presses
+
+// const myDiv = document.getElementById("myDiv");
+
+//  window.addEventListener("keydown", move);
+// let x = 0;
+// let y = 0;
+
+//  function move(event){
+
+//     switch(event.key){
+//         case "ArrowDown":
+//             y+=5;
+//             myDiv.style.top = y + "px";
+//             break;
+//         case "ArrowUp":
+//             y-=5;
+//             myDiv.style.top = y + "px";
+//             break;
+//         case "ArrowRight":
+//             x+=5;
+//             myDiv.style.left = x + "px";
+//             break;
+//         case "ArrowLeft":
+//             x-=5;
+//             myDiv.style.left = x + "px";
+//             break;
+//         default:
+//             break;
+//     }
+// }
+
+// const myButton = document.getElementById("myButton");
+// const myAnimation = document.getElementById("myDiv");
+
+// myButton.addEventListener("click", begin);
+
+// function begin(){
+//     let timerId = null;
+//     let x = 0;
+//     let y = 0;
+//     let degrees = 0;
+//     let scaleX = 1;
+//     let scaleY = 1;
+
+//     timerId = setInterval(frame, 5);
+    
+//     function frame(){
+//         if( y >= 200 || y >= 200 || scaleX >= 5){
+//             clearInterval(timerId);
+//         }
+//         else{
+
+//             degrees+=2;
+//             x+=1;
+//             y+=1;
+//             myAnimation.style.left = x + "px";
+//             myAnimation.style.top = y + "px";
+//             myAnimation.style.transform = "rotateZ("+degrees+"deg)"; // also use x and y
+//             scaleX +=0.01;
+//             scaleY +=0.01;
+//             myAnimation.style.transform = "scale("+scaleX+","+scaleY+")";
+//         }
+//     }
+// }
+
+// // using the canvas API
+
+// let canvas = document.getElementById("myCanvas");
+// let context = canvas.getContext("2d");
+
+// // context.strokeStyle = 'hotpink';
+// // context.lineWidth = 1.2;
+// // context.beginPath();
+// // context.moveTo(0, 0);
+// // context.lineTo(250, 250);
+// // context.lineTo(250, 500);
+// // context.moveTo(500, 0);
+// // context.lineTo(250, 250);
+// // context.stroke();
+
+// // drawing a triangle
+
+// context.fillStyle = 'green';
+// context.lineWidth = "50";
+// context.strokeStyle = "lightgray"
+
+// context.beginPath();
+// context.moveTo(250, 0);
+// context.lineTo(0, 250);
+// context.lineTo(500, 250);
+// context.lineTo(250, 0);
+// context.stroke();
+// context.fill();
+
+// // drawing a triangle
+
+// context.strokeStyle = "orange";
+// context.strokeRect(0, 0, 250, 250);
+
+// the window object: an interface used to talk with the web browser
+
+// console.dir(window);
+
+// console.log(window.innerWidth);
+// console.log(window.innerHeight);
+
+// console.log(window.outerWidth);
+// console.log(window.outerHeight);
+
+// console.log(window.scrollX);
+// console.log(window.scrollY);
+
+// console.log(window.location.href = "https://google.com");
+// console.log(window.location.hostname);
+
+// console.log(window.location.pathname);
+
+// const myButton = document.querySelector("#myButton");
+
+// myButton.addEventListener("click", () => window.open('https://google.com'));
+
+// const closeWindow = document.querySelector("#close");
+
+// closeWindow.addEventListener("click", () => window.close());
+
+// const printBtn = document.querySelector("#print");
+
+// printBtn.addEventListener("click", () => window.print());
+
+// window.alert("HELLO!");
+
+// window.confirm("Press OK to continue...");
+
+
+// Cookies: a small text file that is stored on the computer. Cookie data is stored in name-value pairs.
+
+// console.log(navigator.cookieEnabled); // are cookies enabled?
+// console.log("");
+// document.cookie = 'firstName=Captain; expires=Sun, 1 January 2030 12:00:00 UTC; path=/';
+// document.cookie = 'lastName=Falcon; expires=Sun, 1 January 2020 12:00:00 UTC; path=/';
+
+// console.log(document.cookie);
+
+// creating a function to create a cookie
+
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+// ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES ######## MAKING COOKIES
+
+
+console.log(getCookie("lastName"));
+
+
+const firstText = document.querySelector("#firstText");
+const lastText = document.querySelector("#lastText");
+const submitBtn = document.querySelector("#submitBtn");
+const cookieBtn = document.querySelector("#cookieBtn");
+
+submitBtn.addEventListener('click', () => 
+{
+    setCookie("firstName", firstText.value, 365);
+    setCookie("lastName", lastText.value, 365);
+})
+
+
+cookieBtn.addEventListener('click', () => 
+{
+    firstText.value = getCookie('firstName');
+    lastText.value = getCookie('lastName');
+})
+ 
+
+function setCookie(name, value, daysToLive)
+{
+    const date = new Date();
+    date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
+}
+
+
+// easy way to delete cookie
+
+function deleteCookie(name){
+    setCookie(name, null, null);
+}
+
+// deleteCookie("firstName");
+
+// get the value of a cookie by name
+
+function getCookie(name)
+{
+    
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArray = cDecoded.split('; ');
+    let result = null;
+
+    cArray.forEach(element => {
+        if(element.indexOf(name) == 0){
+            result = element.substring(name.length + 1);
+        }
+    })
+    return result;
+}
 
